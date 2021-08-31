@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from moviename import views 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('retrive/<int:pk>/', views.MoviesListsRetrive.as_view()),
     path('update/<int:pk>/', views.MoviesListsUpdate.as_view()),
     path('delete/<int:pk>/', views.MoviesListsDelete.as_view()),
+    path('auth/',include('rest_framework.urls',namespace='rest_framework')),
 ]
 
